@@ -12,7 +12,8 @@ include('../extends/header.php')
                         <div class="col-lg-4">
                             <div class="card mb-4">
                                 <div class="card-body text-center">
-                                    <img src="https://image.winudf.com/v2/image1/bmV0LndsbHBwci5ib3lzX3Byb2ZpbGVfcGljdHVyZXNfc2NyZWVuXzBfMTY2NzUzNzYxN18wOTk/screen-0.webp?fakeurl=1&type=.webp" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                                    <img src="../images/users/<?= $_SESSION['user_image'] ?>" alt="avatar" class="rounded-circle img-fluid" style="width: 150px; height:150px;">
+
                                     <h5 class="my-3"><?= $_SESSION['user_name'] ?></h5>
                                     <p class="text-muted mb-1">Full Stack Developer</p>
                                     <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
