@@ -1,5 +1,6 @@
 <?php
-include('../extends/header.php')
+include('../extends/header.php');
+include('icon.php');
 ?>
 
 <div class="row">
@@ -9,7 +10,7 @@ include('../extends/header.php')
         </div>
     </div>
 </div>
-<div class="col-6">
+<div class="col-12">
     <div class="card">
         <div class="card-body">
             <form action="add_service_POST.php" method="POST">
@@ -17,14 +18,22 @@ include('../extends/header.php')
                 <input type="text" class="form-control" id="exampleInputEmail1" name="service_name">
                 <br>
                 <label for="exampleInputEmail1" class="form-label">Service description</label>
-                <textarea name="service_description" id="" cols="83" rows="2"></textarea>
+                <textarea class='form-control' rows="4" name="service_description"></textarea>
                 <br>
 
                 <label for="exampleInputEmail1" class="form-label">Price</label>
                 <input type="number" class="form-control" id="exampleInputEmail1" name="service_price">
 
                 <label for="exampleInputEmail1" class="form-label">Icon</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" name="service_icon">
+                <input type="text" class="form-control" id="service_icon" name="service_icon">
+
+                <div class="card">
+                    <div class="card-body">
+                        <?php foreach ($fonts as $font) : ?>
+                            <span class="fa-2x"><i class="<?= $font ?>" onclick="myFunc(event)"></i></span>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
 
 
                 <?php if (isset($_SESSION['add_service error'])) : ?>
@@ -39,6 +48,13 @@ include('../extends/header.php')
 
                 <button type="submit" class="btn-primary rounded mt-2 py-4 px-4" name="add_service">Add service</button>
             </form>
+            <script>
+                const icon_field = document.getElementById("service_icon");
+
+                function myFunc(event) {
+                    icon_field.value = event.target.getAttribute('class');
+                }
+            </script>
         </div>
     </div>
 </div>

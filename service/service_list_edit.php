@@ -1,6 +1,7 @@
 <?php
 include('../extends/header.php');
 include('../config/db.php');
+include('icon.php');
 $id = $_GET['edit_id'];
 $service_query = "SELECT * FROM services WHERE id='$id'";
 $result = mysqli_query($db_connect, $service_query);
@@ -33,24 +34,25 @@ $service = mysqli_fetch_assoc($result);
                     <input type="number" class="form-control" id="exampleInputEmail1" name="service_price" value="<?= $service['price']  ?>">
 
                     <label for="exampleInputEmail1" class="form-label">Icon</label>
-                    <input type="text" class="form-control" name="icon" id="iconId" value="<?= $service['icon']  ?>">
+                    <input type="text" class="form-control" name="icon" id="service_icon" value="<?= $service['icon']  ?>">
                     <br>
                     <div class="card">
                         <div class="card-body">
-                            ICON HERE
+                            <?php foreach ($fonts as $font) : ?>
+                                <span class="fa-2x"><i class="<?= $font ?>" onclick="myFunc(event)"></i></span>
+                            <?php endforeach; ?>
                         </div>
                     </div>
 
-                    <script>
-                        let input = document.getElementById("iconId");
-
-                        function myFun() {
-                            input.value = event.target.getAttribute('class');
-                        }
-                    </script>
-
                     <button type='submit' name="service_update" class='btn btn-info mt-5'>Insert</button>
                 </form>
+                <script>
+                    const icon_field = document.getElementById("service_icon");
+
+                    function myFunc(event) {
+                        icon_field.value = event.target.getAttribute('class');
+                    }
+                </script>
 
             </div>
         </div>
