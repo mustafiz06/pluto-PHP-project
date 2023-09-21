@@ -83,6 +83,18 @@ if (!$_SESSION['user_id']) {
                             </li>
                         </ul>
                     </li>
+                    <li class="<?= basename($_SERVER['PHP_SELF']) == 'service.php' ? 'active-page' : '' ?>">
+                        <a href="../service/service.php"><i class="material-icons-two-tone">dashboard</i>Service<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
+                        
+                        <ul class="sub-menu">
+                            <li>
+                            <a href="../service/service_list.php" class="<?= basename($_SERVER['PHP_SELF']) == '../service/service_list.php' ? 'active-page' : '' ?>">Service</a>
+                            </li>
+                            <li>
+                                <a href="../service/add_service.php" class="<?= basename($_SERVER['PHP_SELF']) == '../service/add_service.php' ? 'active-page' : '' ?>">Add Service</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
