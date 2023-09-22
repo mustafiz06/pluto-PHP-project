@@ -95,6 +95,18 @@ if (!$_SESSION['user_id']) {
                             </li>
                         </ul>
                     </li>
+                    <li class="<?= basename($_SERVER['PHP_SELF']) == 'service.php' ? 'active-page' : '' ?>">
+                        <a href="../portfolio/portfolio_list.php"><i class="material-icons-two-tone">dashboard</i>Portfolio<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
+                        
+                        <ul class="sub-menu">
+                            <li>
+                            <a href="../portfolio/portfolio_list.php" class="<?= basename($_SERVER['PHP_SELF']) == '../portfolio/portfolio_list.php' ? 'active-page' : '' ?>">Portfolio</a>
+                            </li>
+                            <li>
+                                <a href="../portfolio/add_portfolio.php" class="<?= basename($_SERVER['PHP_SELF']) == '../portfolio/add_portfolio.php' ? 'active-page' : '' ?>">Add Portfolio</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
