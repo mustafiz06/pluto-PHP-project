@@ -1,5 +1,11 @@
 <?php
-include('../extends/header.php')
+include('../extends/header.php');
+include('../config/db.php');
+
+$user_id = $_SESSION['user_id'];
+$user_query = "SELECT * FROM users WHERE id='$user_id'";
+$users = mysqli_query($db_connect, $user_query);
+$user = mysqli_fetch_assoc($users);
 ?>
 
 
@@ -12,13 +18,13 @@ include('../extends/header.php')
                         <div class="col-lg-4">
                             <div class="card mb-4">
                                 <div class="card-body text-center">
-                                    <img src="../images/users/<?= $_SESSION['user_image'] ?>" alt="avatar" class="rounded-circle img-fluid" style="width: 150px; height:150px;">
+                                    <img src="../images/users/<?=  $user['image'] ?>" alt="avatar" class="rounded-circle img-fluid" style="width: 150px; height:150px;">
 
                                     <h5 class="my-3"><?= $_SESSION['user_name'] ?></h5>
-                                    <p class="text-muted mb-1">Full Stack Developer</p>
-                                    <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
+                                    <p class="text-muted mb-1"><?=  $user['profession'] ?></p>
+                                    <p class="text-muted mb-4"><?=  $user['address'] ?></p>
                                     <div class="d-flex justify-content-center mb-2">
-                                        <button type="button" class="btn btn-primary">Follow</button>
+                                        <a href="../profile/update_profile.php" class="btn btn-primary">Edit</a>
                                         <button type="button" class="btn btn-outline-primary ms-1">Message</button>
                                     </div>
                                 </div>
@@ -41,7 +47,7 @@ include('../extends/header.php')
                                             <p class="mb-0">Full Name</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <p class="text-muted mb-0"><?= $_SESSION['user_name'] ?></p>
+                                            <p class="text-muted mb-0"><?=  $user['profession'] ?></p>
                                         </div>
                                     </div>
                                     <hr>
@@ -50,7 +56,7 @@ include('../extends/header.php')
                                             <p class="mb-0">Email</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <p class="text-muted mb-0"><?= $_SESSION['user_email'] ?></p>
+                                            <p class="text-muted mb-0"><?=  $user['email'] ?>></p>
                                         </div>
                                     </div>
                                     <hr>
@@ -59,16 +65,16 @@ include('../extends/header.php')
                                             <p class="mb-0">Phone</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <p class="text-muted mb-0">(097) 234-5678</p>
+                                            <p class="text-muted mb-0"><?=  $user['phone'] ?></p>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <p class="mb-0">Mobile</p>
+                                            <p class="mb-0">Profession</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <p class="text-muted mb-0">(098) 765-4321</p>
+                                            <p class="text-muted mb-0"><?=  $user['profession'] ?></p>
                                         </div>
                                     </div>
                                     <hr>
@@ -77,7 +83,25 @@ include('../extends/header.php')
                                             <p class="mb-0">Address</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                                            <p class="text-muted mb-0"><?=  $user['address'] ?></p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0">Gender</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0"><?=  $user['gender'] ?></p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0">Date of Birth</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0"><?=  $user['birth_date'] ?></p>
                                         </div>
                                     </div>
                                 </div>
