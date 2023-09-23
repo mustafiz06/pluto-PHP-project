@@ -26,7 +26,7 @@ $user = mysqli_fetch_assoc($users);
                     <input type="text" class="form-control" id="name" name="name" placeholder="<?= $_SESSION['user_name'] ?>">
 
                     <label for="phone" class="form-label">Phone No</label>
-                    <input type="number" class="form-control" id="phone" name="phone" placeholder="<?=  $user['phone'] ?>">
+                    <input type="phone" class="form-control" id="phone" name="phone" placeholder="<?=  $user['phone'] ?>">
 
                     <label for="address" class="form-label">Address</label>
                     <input type="text" class="form-control" id="address" name="address" placeholder="<?=  $user['address'] ?>">

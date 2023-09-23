@@ -51,7 +51,7 @@ if (!$_SESSION['user_id']) {
     <div class="app align-content-stretch d-flex flex-wrap">
         <div class="app-sidebar">
             <div class="logo">
-                <a href="index.html" class="logo-icon"><span class="logo-text">Neptune</span></a>
+                <a href="../home/home.php" class="logo-icon"><span class="logo-text">Neptune</span></a>
                 <div class="sidebar-user-switcher user-activity-online">
                     <a href="#">
                         <img src="">
@@ -68,7 +68,7 @@ if (!$_SESSION['user_id']) {
                     <li class="<?= basename($_SERVER['PHP_SELF']) == 'home.php' ? 'active-page' : '' ?>">
                         <a href="../home/home.php"><i class="material-icons-two-tone">dashboard</i>Dashboard</a>
                     </li>
-                    <li class="<?= basename($_SERVER['PHP_SELF']) == 'profile.php' ? 'active-page' : '' ?>">
+                    <!-- <li class="<?= basename($_SERVER['PHP_SELF']) == 'profile.php' ? 'active-page' : '' ?>">
                         <a href="../profile/profile.php"><i class="material-icons-two-tone">face</i>profile<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
                         
                         <ul class="sub-menu">
@@ -82,7 +82,7 @@ if (!$_SESSION['user_id']) {
                                 <a href="../profile/update_image.php" class="<?= basename($_SERVER['PHP_SELF']) == '../profile/update_image.php' ? 'active-page' : '' ?>">Update Image</a>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li class="<?= basename($_SERVER['PHP_SELF']) == 'service.php' ? 'active-page' : '' ?>">
                         <a href="../service/service.php"><i class="material-icons-two-tone">dashboard</i>Service<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
                         

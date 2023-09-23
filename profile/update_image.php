@@ -1,10 +1,12 @@
 <?php
 include('../extends/header.php');
 
-// $user_image = $_SESSION['user_image'] ;
-// echo $user_image;
-echo $_SESSION['user_id'];
-echo $_SESSION['user_name'];
+include('../config/db.php');
+
+$user_id = $_SESSION['user_id'];
+$user_query = "SELECT * FROM users WHERE id='$user_id'";
+$users = mysqli_query($db_connect, $user_query);
+$user = mysqli_fetch_assoc($users);
 ?>
 
 
@@ -19,10 +21,15 @@ echo $_SESSION['user_name'];
     <form action="update_image_POST.php" method="POST" enctype="multipart/form-data">
 
         <div class="row">
-            <img src="../images/users/<?=$_SESSION['user_image'] ?>" style="width: 100px; height:100px;">
+            <?php if (!$user['image']) : ?>
+                    <h3>You have not set any picture yet.</h3>
+                    <h2 class="text-warning"> Choose a formal picture for your account.</h2>
+            <?php else : ?>
+                    <img src="../images/users/<?= $user['image'] ?>" title="Change Profile Picture" alt="avatar" class="rounded-circle img-fluid" style="width: 150px; height:150px;">
+            <?php endif ?>
         </div>
 
-        <input id="myInput" type="file" class="form-control" name="image">
+        <input id="myInput" type="file" class="form-control" name="image" placeholder="ghg">
 
 
         <?php if (isset($_SESSION['user_image error'])) : ?>
