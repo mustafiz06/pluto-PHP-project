@@ -4,7 +4,8 @@ session_start();
 
 $title = $_POST['portfolio_title'];
 $sub_title = $_POST['portfolio_sub_title'];
-$description = $_POST['portfolio_description'];
+// $description = $_POST['portfolio_description'];
+$description = $db_connect -> real_escape_string($_POST['portfolio_description']);
 
 
 $image = $_FILES['image']['name'];
