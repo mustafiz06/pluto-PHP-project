@@ -1,12 +1,18 @@
 <?php
-include('../extends/header.php')
+include('../extends/header.php');
+include('../config/db.php');
+
+$user_id = $_SESSION['user_id'];
+$user_query = "SELECT * FROM users WHERE id='$user_id'";
+$users = mysqli_query($db_connect, $user_query);
+$user = mysqli_fetch_assoc($users);
 ?>
 
 
 <div class="row">
     <div class="col">
         <div class="page-description">
-            <h1>Update Name</h1>
+            <h1>Update Profile</h1>
         </div>
     </div>
 </div>
@@ -20,20 +26,21 @@ include('../extends/header.php')
                     <input type="text" class="form-control" id="name" name="name" placeholder="<?= $_SESSION['user_name'] ?>">
 
                     <label for="phone" class="form-label">Phone No</label>
-                    <input type="number" class="form-control" id="phone" name="phone" placeholder="Phone">
+                    <input type="number" class="form-control" id="phone" name="phone" placeholder="<?=  $user['phone'] ?>">
 
                     <label for="address" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="address" name="address" placeholder="Address">
+                    <input type="text" class="form-control" id="address" name="address" placeholder="<?=  $user['address'] ?>">
 
                     <label for="profession" class="form-label">Profession</label>
-                    <input type="text" class="form-control" id="profession" name="profession" placeholder="Profession">
+                    <input type="text" class="form-control" id="profession" name="profession" placeholder="<?=  $user['profession'] ?>">
 
                     <label for="birth_date" class="form-label">Date of Birth</label>
-                    <input type="date" class="form-control" id="birth_date" name="birth_date" placeholder="Date of birth">
+                    <input type="date" class="form-control" id="birth_date" name="birth_date" placeholder="<?=  $user['birth_date'] ?>">
 
                     <br>
                     <label for="gender" class="form-label">Gender</label>
-                    <select name="gender" id="gender">
+                    <select name="gender" id="gender" >
+                        <option value=""><?=  $user['gender'] ?></option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                         <option value="Others">Others</option>
