@@ -5,7 +5,6 @@ $id = $_GET['portfolio_edit_id'];
 $portfolio_query = "SELECT * FROM portfolios WHERE id='$id'";
 $result = mysqli_query($db_connect, $portfolio_query);
 $portfolio = mysqli_fetch_assoc($result);
-
 ?>
 
 <div class="row">
@@ -40,11 +39,13 @@ $portfolio = mysqli_fetch_assoc($result);
 
                     <?php if (isset($_SESSION['edit_portfolio error'])) : ?>
                         <div id="emailHelp" class="form-text fw-bold text-danger"><?= $_SESSION['edit_portfolio error'] ?></div>
-                    <?php endif; unset($_SESSION['edit_portfolio error']) ?>
+                    <?php endif;
+                    unset($_SESSION['edit_portfolio error']) ?>
 
                     <?php if (isset($_SESSION['edit_portfolio success'])) : ?>
                         <div id="emailHelp" class="form-text fw-bold text-success"><?= $_SESSION['edit_portfolio success'] ?></div>
-                    <?php endif; unset($_SESSION['edit_portfolio success']) ?>
+                    <?php endif;
+                    unset($_SESSION['edit_portfolio success']) ?>
 
                     <button type='submit' name="portfolio_update" class='btn btn-info mt-5'>Update</button>
                 </form>

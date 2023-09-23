@@ -43,9 +43,9 @@ $serial = 1;
                     <td><?= $portfolio['description'] ?></td>
                     <td>
                         <?php if ($portfolio['status']  == 'active') : ?>
-                            <a href="portfolio_list_POST.php?status_change=<?= $portfolio['id'] ?>" class="btn btn-success btn-sm"><?= $portfolio['status'] ?></a>
+                            <a href="portfolio_list_POST.php?portfolio_status_change=<?= $portfolio['id'] ?>" class="btn btn-success btn-sm"><?= $portfolio['status'] ?></a>
                         <?php else : ?>
-                            <a href="portfolio_list_POST.php?status_change=<?= $portfolio['id'] ?>" class="btn btn-danger btn-sm"><?= $portfolio['status'] ?></a>
+                            <a href="portfolio_list_POST.php?portfolio_status_change=<?= $portfolio['id'] ?>" class="btn btn-danger btn-sm"><?= $portfolio['status'] ?></a>
                         <?php endif; ?>
                     </td>
                     <td>

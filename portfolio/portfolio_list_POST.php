@@ -12,8 +12,8 @@ if (isset($_GET['portfolio_delete_id'])) {
 };
 
 // status change
-if (isset($_GET['status_change'])) {
-    $identify_id = $_GET['status_change'];
+if (isset($_GET['portfolio_status_change'])) {
+    $identify_id = $_GET['portfolio_status_change'];
     $select_status = "SELECT * FROM portfolios WHERE id='$identify_id'";
     $connect = mysqli_query($db_connect, $select_status);
     $portfolio = mysqli_fetch_assoc($connect);
@@ -28,13 +28,14 @@ if (isset($_GET['status_change'])) {
         header('location: ./portfolio_list.php');
     }
 }
+
+
 //edit portfolio
 if (isset($_POST['portfolio_update'])) {
     $identify_id = $_POST['portfolio_id'];
     $title = $_POST['portfolio_title'];
     $sub_title = $_POST['portfolio_sub_title'];
     $description = $_POST['portfolio_description'];
-
 
     $image = $_FILES['image']['name'];
     $tmp_name = $_FILES['image']['tmp_name'];
@@ -43,10 +44,9 @@ if (isset($_POST['portfolio_update'])) {
     $new_image_name = $title . "-" . date("h:i:sa") . '-' . date("d-m-Y") . "-" . "." . $extension;
     $image_path = "../images/portfolio/" . $new_image_name;
 
-
-    if (move_uploaded_file($tmp_name, $image_path)) {
+    // if (move_uploaded_file($tmp_name, $image_path)) {
         if ($title && $description && $sub_title) {
-            $edit_query = "UPDATE portfolios SET title='$title',description='$description',subtitle='$sub_title',image='$new_image_name' WHERE id='$identify_id'";
+            $edit_query = "UPDATE portfolios SET title='$title',description='$description',subtitle='$sub_title' WHERE id='$identify_id'";
             mysqli_query($db_connect, $edit_query);
 
             $_SESSION['edit_portfolio success'] = 'Successfully updated';
@@ -55,13 +55,8 @@ if (isset($_POST['portfolio_update'])) {
             $_SESSION['edit_portfolio error'] = 'Unable to update';
             header('location: ./portfolio_list_edit.php');
         }
-    }
-    else {
-        $_SESSION['edit_portfolio error']= 'Images error occur';
-        header('location: ./portfolio_list_edit.php');
-    }
-}
- else {
-    $_SESSION['edit_portfolio error'] = 'Something is wrong';
-    header('location: ./portfolio_list_edit.php');
+    // } else {
+    //     $_SESSION['edit_portfolio error'] = 'Images error occur';
+    //     header('location: ./portfolio_list_edit.php');
+    // }
 };
