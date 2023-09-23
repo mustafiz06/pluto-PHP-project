@@ -73,7 +73,7 @@ if (!$_SESSION['user_id']) {
                         
                         <ul class="sub-menu">
                             <li>
-                            <a href="../profile/update_name.php" class="<?= basename($_SERVER['PHP_SELF']) == '../profile/update_name.php' ? 'active-page' : '' ?>">update name</a>
+                            <a href="../profile/update_profile.php" class="<?= basename($_SERVER['PHP_SELF']) == '../profile/update_profile.php' ? 'active-page' : '' ?>">update Profile</a>
                             </li>
                             <li>
                                 <a href="../profile/update_password.php" class="<?= basename($_SERVER['PHP_SELF']) == '../profile/update_password.php' ? 'active-page' : '' ?>">Update password</a>
