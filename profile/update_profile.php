@@ -23,19 +23,19 @@ $user = mysqli_fetch_assoc($users);
                 <form action="update_profile_POST.php" method="POST">
 
                     <label for="name" class="form-label">New Name</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="<?= $_SESSION['user_name'] ?>">
+                    <input type="text" class="form-control" id="name" name="name" value="<?= $_SESSION['user_name'] ?>">
 
                     <label for="phone" class="form-label">Phone No</label>
-                    <input type="phone" class="form-control" id="phone" name="phone" placeholder="<?=  $user['phone'] ?>">
+                    <input type="phone" class="form-control" id="phone" name="phone" value="<?=  $user['phone'] ?>">
 
                     <label for="address" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="address" name="address" placeholder="<?=  $user['address'] ?>">
+                    <input type="text" class="form-control" id="address" name="address" value="<?=  $user['address'] ?>">
 
                     <label for="profession" class="form-label">Profession</label>
-                    <input type="text" class="form-control" id="profession" name="profession" placeholder="<?=  $user['profession'] ?>">
+                    <input type="text" class="form-control" id="profession" name="profession" value="<?=  $user['profession'] ?>">
 
                     <label for="birth_date" class="form-label">Date of Birth</label>
-                    <input type="date" class="form-control" id="birth_date" name="birth_date" placeholder="<?=  $user['birth_date'] ?>">
+                    <input type="date" class="form-control" id="birth_date" name="birth_date" value="<?=  $user['birth_date'] ?>">
 
                     <br>
                     <label for="gender" class="form-label">Gender</label>

@@ -12,7 +12,7 @@ if(isset($_POST['name_update'])){
     $gender = $_POST['gender'];
     $birth_date = $_POST['birth_date'];
     
-    if($name){
+    if($user_id){
         $user_id = $_SESSION['user_id'];
         $name_update_query = "UPDATE users SET name='$name',address='$address' ,phone='$phone' ,profession='$profession' ,gender='$gender' ,birth_date='$birth_date' WHERE id='$user_id'";
         mysqli_query($db_connect,$name_update_query);
