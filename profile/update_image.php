@@ -22,15 +22,20 @@ $user = mysqli_fetch_assoc($users);
 
         <div class="row">
             <?php if (!$user['image']) : ?>
-                    <h3>You have not set any picture yet.</h3>
-                    <h2 class="text-warning"> Choose a formal picture for your account.</h2>
+                <h3>You have not set any picture yet.</h3>
+                <h2 class="text-warning"> Choose a formal picture for your account.</h2>
             <?php else : ?>
-                    <img src="../images/users/<?= $user['image'] ?>" title="Change Profile Picture" alt="avatar" class="rounded-circle img-fluid" style="width: 150px; height:150px;">
+                <img src="../images/users/<?= $user['image'] ?>" title="Change Profile Picture" alt="avatar" class="rounded-circle img-fluid" style="width: 150px; height:150px;">
             <?php endif ?>
         </div>
 
         <input id="myInput" type="file" class="form-control" name="image" placeholder="ghg">
 
+
+        <?php if (isset($_SESSION['user_image success'])) : ?>
+            <div id="emailHelp" class="form-text text-success fw-bold"><?= $_SESSION['user_image success'] ?></div>
+        <?php endif;
+        unset($_SESSION['user_image success']) ?>
 
         <?php if (isset($_SESSION['user_image error'])) : ?>
             <div id="emailHelp" class="form-text text-danger fw-bold"><?= $_SESSION['user_image error'] ?></div>
