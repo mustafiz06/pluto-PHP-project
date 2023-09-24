@@ -41,22 +41,32 @@ if (isset($_POST['portfolio_update'])) {
     $tmp_name = $_FILES['image']['tmp_name'];
     $explode = explode('.', $image);
     $extension = end($explode);
-    $new_image_name = $title . "-" . date("h:i:sa") . '-' . date("d-m-Y") . "-" . "." . $extension;
+    $new_image_name = $title . "-" . date("h-i-sa") . '-' . date("d-m-Y") . "-" . "." . $extension;
     $image_path = "../images/portfolio/" . $new_image_name;
 
-    // if (move_uploaded_file($tmp_name, $image_path)) {
-        if ($title && $description && $sub_title) {
-            $edit_query = "UPDATE portfolios SET title='$title',description='$description',subtitle='$sub_title' WHERE id='$identify_id'";
-            mysqli_query($db_connect, $edit_query);
+    if ($title && $description && $sub_title) {
+        $edit_query = "UPDATE portfolios SET title='$title',description='$description',subtitle='$sub_title' WHERE id='$identify_id'";
+        mysqli_query($db_connect, $edit_query);
+
+        $_SESSION['edit_portfolio success'] = 'Successfully updated';
+        header('location: ./portfolio_list.php');
+    }
+    else{
+        $_SESSION['edit_portfolio error'] = 'Fail to updated Portfolio';
+        header('location: ./portfolio_edit_list.php');
+    }
+
+    if ($image) {
+        if (move_uploaded_file($tmp_name, $image_path)) {
+            $edit_query_image = "UPDATE portfolios SET image='$new_image_name' WHERE id='$identify_id'";
+            mysqli_query($db_connect, $edit_query_image);
 
             $_SESSION['edit_portfolio success'] = 'Successfully updated';
             header('location: ./portfolio_list.php');
-        } else {
-            $_SESSION['edit_portfolio error'] = 'Unable to update';
-            header('location: ./portfolio_list_edit.php');
         }
-    // } else {
-    //     $_SESSION['edit_portfolio error'] = 'Images error occur';
-    //     header('location: ./portfolio_list_edit.php');
-    // }
-};
+        else{
+            $_SESSION['edit_portfolio error'] = 'Fail to updated Image';
+            header('location: ./portfolio_edit_list.php');
+        }
+    }
+}
