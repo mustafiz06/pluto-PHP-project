@@ -13,8 +13,9 @@ $serial = 1;
 
 <div class="row">
     <div class="col">
-        <div class="page-description">
-            <h1>portfolio List</h1>
+    <div class="page-description d-flex justify-content-between align-items-center">
+            <h1>Portfolio List</h1>
+            <span><a href="./add_portfolio.php" class="btn btn-success"><i class="large material-icons">add</i> Add Portfolio</a></span>
         </div>
     </div>
 </div>
@@ -49,8 +50,8 @@ $serial = 1;
                         <?php endif; ?>
                     </td>
                     <td>
-                        <a href="portfolio_list_edit.php?portfolio_edit_id=<?= $portfolio['id'] ?>" class="btn btn-primary">Edit</a>
-                        <a href="portfolio_list_POST.php?portfolio_delete_id=<?= $portfolio['id'] ?>" class="btn btn-danger">Delete</a>
+                        <a href="portfolio_list_edit.php?portfolio_edit_id=<?= $portfolio['id'] ?>" class="btn btn-primary"><i class="large material-icons">edit</i>Edit</a>
+                        <a href="portfolio_list_POST.php?portfolio_delete_id=<?= $portfolio['id'] ?>" class="btn btn-danger"><i class="large material-icons">delete</i>Delete</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

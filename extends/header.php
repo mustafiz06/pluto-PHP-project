@@ -66,46 +66,13 @@ if (!$_SESSION['user_id']) {
                         Apps
                     </li>
                     <li class="<?= basename($_SERVER['PHP_SELF']) == 'home.php' ? 'active-page' : '' ?>">
-                        <a href="../home/home.php"><i class="material-icons-two-tone">dashboard</i>Dashboard</a>
+                        <a href="../home/home.php"><i class="material-icons">account_circle</i>Profile</a>
                     </li>
-                    <!-- <li class="<?= basename($_SERVER['PHP_SELF']) == 'profile.php' ? 'active-page' : '' ?>">
-                        <a href="../profile/profile.php"><i class="material-icons-two-tone">face</i>profile<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
-                        
-                        <ul class="sub-menu">
-                            <li>
-                            <a href="../profile/update_profile.php" class="<?= basename($_SERVER['PHP_SELF']) == '../profile/update_profile.php' ? 'active-page' : '' ?>">update Profile</a>
-                            </li>
-                            <li>
-                                <a href="../profile/update_password.php" class="<?= basename($_SERVER['PHP_SELF']) == '../profile/update_password.php' ? 'active-page' : '' ?>">Update password</a>
-                            </li>
-                            <li>
-                                <a href="../profile/update_image.php" class="<?= basename($_SERVER['PHP_SELF']) == '../profile/update_image.php' ? 'active-page' : '' ?>">Update Image</a>
-                            </li>
-                        </ul>
-                    </li> -->
-                    <li class="<?= basename($_SERVER['PHP_SELF']) == 'service.php' ? 'active-page' : '' ?>">
-                        <a href="../service/service.php"><i class="material-icons-two-tone">dashboard</i>Service<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
-                        
-                        <ul class="sub-menu">
-                            <li>
-                            <a href="../service/service_list.php" class="<?= basename($_SERVER['PHP_SELF']) == '../service/service_list.php' ? 'active-page' : '' ?>">Service</a>
-                            </li>
-                            <li>
-                                <a href="../service/add_service.php" class="<?= basename($_SERVER['PHP_SELF']) == '../service/add_service.php' ? 'active-page' : '' ?>">Add Service</a>
-                            </li>
-                        </ul>
+                    <li class="<?= basename($_SERVER['PHP_SELF']) == 'service_list.php' ? 'active-page' : '' ?>">
+                        <a href="../service/service_list.php"><i class="large material-icons">insert_chart</i>Manage Service</a>
                     </li>
-                    <li class="<?= basename($_SERVER['PHP_SELF']) == 'service.php' ? 'active-page' : '' ?>">
-                        <a href="../portfolio/portfolio_list.php"><i class="material-icons-two-tone">dashboard</i>Portfolio<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
-                        
-                        <ul class="sub-menu">
-                            <li>
-                            <a href="../portfolio/portfolio_list.php" class="<?= basename($_SERVER['PHP_SELF']) == '../portfolio/portfolio_list.php' ? 'active-page' : '' ?>">Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../portfolio/add_portfolio.php" class="<?= basename($_SERVER['PHP_SELF']) == '../portfolio/add_portfolio.php' ? 'active-page' : '' ?>">Add Portfolio</a>
-                            </li>
-                        </ul>
+                    <li class="<?= basename($_SERVER['PHP_SELF']) == 'portfolio_list.php' ? 'active-page' : '' ?>">
+                        <a href="../portfolio/portfolio_list.php"><i class="large material-icons">graphic_eq</i>Manage Portfolio</a>
                     </li>
                 </ul>
             </div>

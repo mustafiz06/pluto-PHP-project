@@ -32,7 +32,7 @@ $user = mysqli_fetch_assoc($users);
                                     <h5 class="my-3"><?= $_SESSION['user_name'] ?></h5>
                                     <p class="text-muted mb-1"><?= $user['profession'] ?></p>
                                     <p class="text-muted mb-4"><?= $user['address'] ?></p>
-                                    <a href="../profile/update_profile.php" class="btn btn-primary mb-2">Edit Profile</a>
+                                    <a href="../profile/update_profile.php" class="btn btn-primary mb-2"><i class="large material-icons">edit</i>Edit Profile</a>
                                     <a href="../profile/update_password.php" class="btn btn-primary mb-2">Change Password</a>
                                 </div>
                             </div>

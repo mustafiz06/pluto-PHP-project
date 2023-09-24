@@ -13,8 +13,9 @@ $serial = 1;
 
 <div class="row">
     <div class="col">
-        <div class="page-description">
+        <div class="page-description d-flex justify-content-between align-items-center">
             <h1>Service List</h1>
+            <span><a href="./add_service.php" class="btn btn-success"><i class="large material-icons">add</i>Add Service</a></span>
         </div>
     </div>
 </div>
@@ -22,7 +23,7 @@ $serial = 1;
     <thead>
         <tr>
             <th scope="col">ID</th>
-            <th scope="col">ICOn</th>
+            <th scope="col">Icon</th>
             <th scope="col">Service name</th>
             <th scope="col">Details</th>
             <th scope="col">Price</th>
@@ -49,8 +50,8 @@ $serial = 1;
                         <?php endif; ?>
                     </td>
                     <td>
-                        <a href="service_list_edit.php?edit_id=<?= $service['id'] ?>" class="btn btn-primary">Edit</a>
-                        <a href="service_list_POST.php?delete_id=<?= $service['id'] ?>" class="btn btn-danger">Delete</a>
+                        <a href="service_list_edit.php?edit_id=<?= $service['id'] ?>" class="btn btn-primary"><i class="large material-icons">edit</i>Edit</a>
+                        <a href="service_list_POST.php?delete_id=<?= $service['id'] ?>" class="btn btn-danger"><i class="large material-icons">delete</i>Delete</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
