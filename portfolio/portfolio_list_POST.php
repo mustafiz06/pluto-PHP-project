@@ -37,6 +37,18 @@ if (isset($_POST['portfolio_update'])) {
     $sub_title = $_POST['portfolio_sub_title'];
     $description = $_POST['portfolio_description'];
 
+    if ($title && $description && $sub_title) {
+        $edit_query = "UPDATE portfolios SET title='$title',description='$description',subtitle='$sub_title' WHERE id='$identify_id'";
+        mysqli_query($db_connect, $edit_query);
+
+        $_SESSION['edit_portfolio success'] = 'Successfully updated';
+        header('location: ./portfolio_list.php');
+    } else {
+        $_SESSION['edit_portfolio error'] = 'Fail to updated Portfolio';
+        header('location: ./portfolio_edit_list.php');
+    }
+
+    // image update
     $image = $_FILES['image']['name'];
     $tmp_name = $_FILES['image']['tmp_name'];
     $explode = explode('.', $image);
@@ -44,27 +56,20 @@ if (isset($_POST['portfolio_update'])) {
     $new_image_name = $title . "-" . date("h-i-sa") . '-' . date("d-m-Y") . "-" . "." . $extension;
     $image_path = "../images/portfolio/" . $new_image_name;
 
-    if ($title && $description && $sub_title) {
-        $edit_query = "UPDATE portfolios SET title='$title',description='$description',subtitle='$sub_title' WHERE id='$identify_id'";
-        mysqli_query($db_connect, $edit_query);
-
-        $_SESSION['edit_portfolio success'] = 'Successfully updated';
-        header('location: ./portfolio_list.php');
-    }
-    else{
-        $_SESSION['edit_portfolio error'] = 'Fail to updated Portfolio';
-        header('location: ./portfolio_edit_list.php');
-    }
-
     if ($image) {
+        $image_query = "SELECT image  FROM portfolios WHERE id='$identify_id'";
+        $image_query_connect = mysqli_query($db_connect, $image_query);
+        $exist_image = mysqli_fetch_assoc($image_query_connect)['image'];
+
         if (move_uploaded_file($tmp_name, $image_path)) {
             $edit_query_image = "UPDATE portfolios SET image='$new_image_name' WHERE id='$identify_id'";
             mysqli_query($db_connect, $edit_query_image);
 
+            unlink('../images/portfolio/' . $exist_image);
+
             $_SESSION['edit_portfolio success'] = 'Successfully updated';
             header('location: ./portfolio_list.php');
-        }
-        else{
+        } else {
             $_SESSION['edit_portfolio error'] = 'Fail to updated Image';
             header('location: ./portfolio_edit_list.php');
         }
