@@ -23,10 +23,10 @@ $serial = 1;
     <thead>
         <tr>
             <th scope="col">ID</th>
+            <th scope="col">Image</th>
             <th scope="col">Title</th>
             <th scope="col">Sub-title</th>
             <th scope="col">Description</th>
-            <th scope="col">Image</th>
             <th scope="col">Status</th>
             <th scope="col">Action</th>
         </tr>
@@ -41,7 +41,7 @@ $serial = 1;
                     </td>
                     <td><?= $portfolio['title'] ?></td>
                     <td><?= $portfolio['subtitle'] ?></td>
-                    <td><?= $portfolio['description'] ?></td>
+                    <td><?= (substr($portfolio['description'], 0, 50)) ?>....</td>
                     <td>
                         <?php if ($portfolio['status']  == 'active') : ?>
                             <a href="portfolio_list_POST.php?portfolio_status_change=<?= $portfolio['id'] ?>" class="btn btn-success btn-sm"><?= $portfolio['status'] ?></a>
