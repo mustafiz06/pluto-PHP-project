@@ -37,10 +37,10 @@ $serial = 1;
                 <tr>
                     <th scope="row"><?= $serial++ ?></th>
                     <td>
-                        <i class="<?= $service['icon'] ?>"></i>
+                        <i class="<?= $service['icon'] ?> fa-3x"></i>
                     </td>
                     <td><?= $service['name'] ?></td>
-                    <td><?= $service['description'] ?></td>
+                    <td><?= (substr($service['description'], 0, 80)) ?>....</td>
                     <td><?= $service['price'] ?></td>
                     <td>
                         <?php if ($service['status']  == 'active') : ?>
