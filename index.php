@@ -253,7 +253,7 @@ $portfolios = mysqli_query($db_connect, $portfolio_query);
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="row">
                     <?php foreach ($services as $service) : ?>
                         <div class="col-lg-4 col-md-6">
@@ -265,8 +265,8 @@ $portfolios = mysqli_query($db_connect, $portfolio_query);
                                     <?= $service['description'] ?>
                                 </p>
                             </div>
-                        <?php endforeach; ?>
                         </div>
+                    <?php endforeach; ?>
 
                 </div>
             </div>
@@ -285,20 +285,20 @@ $portfolios = mysqli_query($db_connect, $portfolio_query);
                     </div>
                 </div>
                 <div class="row">
-                    <?php foreach($portfolios as $portfolio) :?>
-                    <div class="col-lg-4 col-md-6 pitem">
-                        <div class="speaker-box">
-                            <div class="speaker-thumb">
-                                <img src="./images/portfolio/<?= $portfolio['image'] ?>" alt="img" style="height: 600px;">
-                            </div>
-                            <div class="speaker-overlay">
-                                <span><?= $portfolio['title'] ?></span>
-                                <h4><a href="portfolio-single.html"><?= $portfolio['subtitle'] ?></a></h4>
-                                <a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
+                    <?php foreach ($portfolios as $portfolio) : ?>
+                        <div class="col-lg-4 col-md-6 pitem">
+                            <div class="speaker-box">
+                                <div class="speaker-thumb">
+                                    <img src="./images/portfolio/<?= $portfolio['image'] ?>" alt="img" style="height: 600px;">
+                                </div>
+                                <div class="speaker-overlay">
+                                    <span><?= $portfolio['title'] ?></span>
+                                    <h4><a href="portfolio-single.html"><?= $portfolio['subtitle'] ?></a></h4>
+                                    <a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <?php endforeach;?>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </section>
