@@ -63,7 +63,7 @@ $user = mysqli_fetch_assoc($users);
                                             <p class="mb-0">Email</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <p class="text-muted mb-0"><?= $user['email'] ?>></p>
+                                            <p class="text-muted mb-0"><?= $user['email'] ?></p>
                                         </div>
                                     </div>
                                     <hr>
