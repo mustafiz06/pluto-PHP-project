@@ -294,7 +294,7 @@ $portfolios = mysqli_query($db_connect, $portfolio_query);
                                 <div class="speaker-overlay">
                                     <span><?= $portfolio['title'] ?></span>
                                     <h4><a href="portfolio-single.html"><?= $portfolio['subtitle'] ?></a></h4>
-                                    <a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
+                                    <a href="./portfolio_item.php?portfolio_id=<?= $portfolio['id'] ?>" class="arrow-btn">More information <span></span></a>
                                 </div>
                             </div>
                         </div>
