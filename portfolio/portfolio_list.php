@@ -11,10 +11,13 @@ $serial = 1;
 ?>
 
 
-<div class="row">
-    <div class="col">
-    <div class="page-description d-flex justify-content-between align-items-center">
-            <h1>Portfolio List</h1>
+<div class="row ">
+    <div class="col" style="margin-bottom: 2px;">
+        <div class="page-description d-flex justify-content-between align-items-center">
+            <div>
+                <h1>Portfolio List</h1>
+                <h4>Total portfolio data = <?= mysqli_num_rows($portfolios) ?></h4>
+            </div>
             <span><a href="./add_portfolio.php" class="btn btn-success"><i class="large material-icons">add</i> Add Portfolio</a></span>
         </div>
     </div>
@@ -37,7 +40,7 @@ $serial = 1;
                 <tr>
                     <th scope="row"><?= $serial++ ?></th>
                     <td>
-                       <img src="../images/portfolio/<?= $portfolio['image'] ?>" alt="No Image" style="height: 100px; width:100px;">
+                        <img src="../images/portfolio/<?= $portfolio['image'] ?>" alt="No Image" style="height: 100px; width:100px;">
                     </td>
                     <td><?= $portfolio['title'] ?></td>
                     <td><?= $portfolio['subtitle'] ?></td>

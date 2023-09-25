@@ -14,7 +14,10 @@ $serial = 1;
 <div class="row">
     <div class="col">
         <div class="page-description d-flex justify-content-between align-items-center">
-            <h1>Service List</h1>
+        <div>
+                <h1>Service List</h1>
+                <h4>Total service data = <?= mysqli_num_rows($services) ?></h4>
+                </div>
             <span><a href="./add_service.php" class="btn btn-success"><i class="large material-icons">add</i>Add Service</a></span>
         </div>
     </div>
