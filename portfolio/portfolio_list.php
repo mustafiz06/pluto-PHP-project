@@ -40,7 +40,7 @@ $serial = 1;
                 <tr>
                     <th scope="row"><?= $serial++ ?></th>
                     <td>
-                        <img src="../images/portfolio/<?= $portfolio['image'] ?>" alt="No Image" style="height: 100px; width:100px;">
+                        <img src="../images/portfolio/<?= $portfolio['image'] ?>" alt="No Image" style="height: 80px; width:80px;">
                     </td>
                     <td><?= $portfolio['title'] ?></td>
                     <td><?= $portfolio['subtitle'] ?></td>
