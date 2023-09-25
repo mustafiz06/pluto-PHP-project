@@ -150,10 +150,10 @@ $portfolio = mysqli_fetch_assoc($portfolios);
                                     <ul>
                                         <li>
                                             <div class="post-avatar-img">
-                                                <img src="./images/portfolio/<?= $portfolio['image'] ?>" alt="img" style="width: 100px; height:100px;">
+                                                <img src="./images/users/<?= $portfolio['user_image'] ?>" alt="img" style="width: 100px; height:100px;">
                                             </div>
                                             <div class="post-avatar-content">
-                                                <h5>Thomas Herlihy</h5>
+                                                <h5><?= $portfolio['user_name'] ?></h5>
                                                 <p>Vehicula dolor amet consectetur adipiscing elit. Cras sollicitudin, tellus vitae
                                                     condimem
                                                     egestliberos dolor auctor
