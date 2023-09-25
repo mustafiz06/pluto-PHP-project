@@ -127,11 +127,12 @@ $portfolio = mysqli_fetch_assoc($portfolios);
                 <div class="row justify-content-center">
                     <div class="col-xl-9 col-lg-10">
                          <div class="single-blog-list">
+                             <h2 class="text-center mt-2"><?= $portfolio['title'] ?></h2>
                                 <div class="blog-list-thumb mb-35">
                                     <img src="./images/portfolio/<?= $portfolio['image'] ?>" alt="Portfolio Image">
                                 </div>
                                 <div class="blog-list-content blog-details-content portfolio-details-content">
-                                    <h2><?= $portfolio['title'] ?></h2>
+                                    <h4><?= $portfolio['subtitle'] ?></h4>
                                     <p><?= $portfolio['description'] ?></p>
                                     <div class="blog-list-meta">
                                         <ul>
