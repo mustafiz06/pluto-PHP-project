@@ -40,7 +40,7 @@ $user = mysqli_fetch_assoc($users);
                     <br>
                     <label for="gender" class="form-label">Gender</label>
                     <select name="gender" id="gender" >
-                        <option value=""><?=  $user['gender'] ?></option>
+                        <option value="<?=  $user['gender'] ?>"><?=  $user['gender'] ?></option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                         <option value="Others">Others</option>
