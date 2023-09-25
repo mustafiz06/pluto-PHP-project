@@ -26,21 +26,24 @@ $user = mysqli_fetch_assoc($users);
                     <input type="text" class="form-control" id="name" name="name" value="<?= $_SESSION['user_name'] ?>">
 
                     <label for="phone" class="form-label">Phone No</label>
-                    <input type="phone" class="form-control" id="phone" name="phone" value="<?=  $user['phone'] ?>">
+                    <input type="phone" class="form-control" id="phone" name="phone" value="<?= $user['phone'] ?>">
 
                     <label for="address" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="address" name="address" value="<?=  $user['address'] ?>">
+                    <input type="text" class="form-control" id="address" name="address" value="<?= $user['address'] ?>">
 
                     <label for="profession" class="form-label">Profession</label>
-                    <input type="text" class="form-control" id="profession" name="profession" value="<?=  $user['profession'] ?>">
+                    <input type="text" class="form-control" id="profession" name="profession" value="<?= $user['profession'] ?>">
+
+                    <label for="country" class="form-label">Country</label>
+                    <input type="text" class="form-control" id="country" name="country" value="<?= $user['country'] ?>">
 
                     <label for="birth_date" class="form-label">Date of Birth</label>
-                    <input type="date" class="form-control" id="birth_date" name="birth_date" value="<?=  $user['birth_date'] ?>">
+                    <input type="date" class="form-control" id="birth_date" name="birth_date" value="<?= $user['birth_date'] ?>">
 
                     <br>
                     <label for="gender" class="form-label">Gender</label>
-                    <select name="gender" id="gender" >
-                        <option value="<?=  $user['gender'] ?>"><?=  $user['gender'] ?></option>
+                    <select name="gender" id="gender">
+                        <option value="<?= $user['gender'] ?>"><?= $user['gender'] ?></option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                         <option value="Others">Others</option>
