@@ -13,7 +13,7 @@ $result = mysqli_query($db_connect, $user_query);
 $user_country = mysqli_fetch_assoc($result);
 $country=$user_country['country'];
 
-$flag_query = "SELECT flag FROM `country` WHERE `name`='$country'";
+$flag_query = "SELECT* FROM `country` WHERE `name`='$country'";
 $result = mysqli_query($db_connect, $flag_query);
 $data = mysqli_fetch_assoc($result);
 
@@ -166,9 +166,8 @@ $data = mysqli_fetch_assoc($result);
                                     <a class="nav-link toggle-search" href="#"><i class="material-icons">search</i></a>
                                 </li>
                                 <li class="nav-item hidden-on-mobile">
-                                    <a class="nav-link language-dropdown-toggle" href="#" id="languageDropDown" data-bs-toggle="dropdown">
-
-                                        <img src="<?= $data['flag'];?>" alt="">
+                                    <a class="nav-link language-dropdown-toggle" href="#">
+                                        <img src="<?= $data['flag'];?>" alt="" title="<?= $data['name'];?>" style="border: 1px solid gray;">
                                     </a>
                                 </li>
                                 <li class="nav-item hidden-on-mobile">
