@@ -1,0 +1,4 @@
+ErrorDocument 404 http://localhost/Project/neptune-PHP-project/404-error.php
+
+RewriteEngine On
+RewriteBase /

@@ -3,8 +3,9 @@ include('../config/db.php');
 
 session_start();
 if (!$_SESSION['user_id']) {
-    header('location: ../404.php');
+    header('location: ../login/login.php');
 }
+
 
 $user_id = $_SESSION['user_id'];
 $user_query = "SELECT country FROM users WHERE id=$user_id";
@@ -15,6 +16,7 @@ $country=$user_country['country'];
 $flag_query = "SELECT flag FROM `country` WHERE `name`='$country'";
 $result = mysqli_query($db_connect, $flag_query);
 $data = mysqli_fetch_assoc($result);
+
 
 ?>
 
