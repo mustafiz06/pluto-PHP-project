@@ -42,11 +42,12 @@ $user = mysqli_fetch_assoc($users);
 
                     <br>
                     <label for="gender" class="form-label">Gender</label>
-                    <select name="gender" id="gender">
-                        <option value="<?= $user['gender'] ?>"><?= $user['gender'] ?></option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Others">Others</option>
+
+                    <?php $gender = array('Male', 'Female', 'Others'); ?>
+                    <select name="gender" id="gender" class="form-control">
+                        <?php foreach ($gender as $key => $value) { ?>
+                            <option value="<?= $value; ?>" <?php if ($user['gender'] == $value) echo "selected" ?>><?= $value; ?></option>
+                        <?php   } ?>
                     </select>
                     <br>
 
