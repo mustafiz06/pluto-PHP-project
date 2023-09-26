@@ -166,7 +166,7 @@ $data = mysqli_fetch_assoc($result);
                                     <a class="nav-link toggle-search" href="#"><i class="material-icons">search</i></a>
                                 </li>
                                 <li class="nav-item hidden-on-mobile">
-                                    <a class="nav-link language-dropdown-toggle" href="#">
+                                    <a class="nav-link language-dropdown-toggle" href="<?= $data['website'];?>" target="_blank">
                                         <img src="<?= $data['flag'];?>" alt="" title="<?= $data['name'];?>" style="border: 1px solid gray;">
                                     </a>
                                 </li>
