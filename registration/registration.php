@@ -59,7 +59,7 @@ session_start();
                     unset($_SESSION['name error']) ?>
 
                     <label for="signUpEmail" class="form-label">Email address</label>
-                    <input type="email" class="form-control m-b-md <?= (isset($_SESSION['email error'])) ? 'is-invalid' : ''; ?>" id="signUpEmail" aria-describedby="signUpEmail" placeholder="example@neptune.com" name="email">
+                    <input type="text" class="form-control m-b-md <?= (isset($_SESSION['email error'])) ? 'is-invalid' : ''; ?>" id="signUpEmail" aria-describedby="signUpEmail" placeholder="example@neptune.com" name="email">
                     <?php if (isset($_SESSION['email error'])) : ?>
                         <div id="emailHelp" class="form-text m-b-md text-danger"><?= $_SESSION['email error'] ?></div>
                     <?php endif;
@@ -67,6 +67,7 @@ session_start();
 
                     <label for="signUpPassword" class="form-label">Password</label>
                     <input type="password" class="form-control <?= (isset($_SESSION['password error'])) ? 'is-invalid' : ''; ?>" id="signUpPassword" aria-describedby="signUpPassword" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" name="password">
+                    
                     <?php if (isset($_SESSION['password error'])) : ?>
                         <div id="emailHelp" class="form-text m-b-md text-danger"><?= $_SESSION['password error'] ?></div>
                     <?php endif;

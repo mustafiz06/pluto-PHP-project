@@ -154,24 +154,15 @@ $data = mysqli_fetch_assoc($result);
                         <div class="d-flex">
                             <ul class="navbar-nav">
                                 <li class="nav-item hidden-on-mobile">
-                                    <a class="nav-link active" href="#">Applications</a>
-                                </li>
-                                <li class="nav-item hidden-on-mobile">
-                                    <a class="nav-link" href="#">Reports</a>
-                                </li>
-                                <li class="nav-item hidden-on-mobile">
-                                    <a class="nav-link" href="#">Projects</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link toggle-search" href="#"><i class="material-icons">search</i></a>
-                                </li>
-                                <li class="nav-item hidden-on-mobile">
                                     <a class="nav-link language-dropdown-toggle" href="<?= $data['website'];?>" target="_blank">
                                         <img src="<?= $data['flag'];?>" alt="" title="<?= $data['name'];?>" style="border: 1px solid gray;">
                                     </a>
                                 </li>
                                 <li class="nav-item hidden-on-mobile">
                                     <span class="nav-link nav-notifications-toggle" id="notificationsDropDown" data-bs-toggle="dropdown"><?= $_SESSION['user_id'] ?></span>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link toggle-search" href="#"><i class="material-icons">search</i></a>
                                 </li>
                                 <li class="nav-item hidden-on-mobile">
                                     <a class="nav-link btn btn-danger text-white" href="../logout.php">Logout</a>

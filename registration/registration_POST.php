@@ -6,14 +6,14 @@ $name = $_POST['name'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 $confirm_password = $_POST['confirm_password'];
-$flag = false;
+$flags = array();
 
 if ($name) {
     if (!preg_match("/^[a-zA-Z-' .]*$/", $name)) {
         $_SESSION['name error'] = 'Only letters and white space allowed';
         header('location: ../registration/registration.php');
     } else {
-        $flag = true;
+        $flags = true;
     }
 } else {
     $_SESSION['name error'] = 'please fill up name field';
@@ -22,7 +22,7 @@ if ($name) {
 
 if ($email) {
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $flag = true;
+        $flags = true;
     } else {
         $_SESSION['email error'] = 'provide valid emaill address';
         header('location: ../registration/registration.php');
@@ -34,31 +34,30 @@ if ($email) {
 
 if ($password) {
     if (preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,12}$/', $password)) {
-        $flag = true;
+        $flags = true;
     } else {
         $_SESSION['password error'] = 'please provide a charactor,a number and special character';
         header('location: ../registration/registration.php');
     }
 } else {
-    $_SESSION['password error'] = 'please provide your password';
+    $_SESSION['password error'] = 'please provide your password';     
     header('location: ../registration/registration.php');
 }
 
 if ($confirm_password) {
     if ($password == $confirm_password) {
-        $flag = true;
+        $flags = true;
     } else {
-        $_SESSION['confirm_password error'] = 'confirm_password and password did not match';
+        $_SESSION['confirm_password error'] = 'confirm password and password did not match';         
         header('location: ../registration/registration.php');
     }
 } else {
-    $_SESSION['confirm_password error'] = 'please provide your confirm_password';
+    $_SESSION['confirm_password error'] = 'please provide your confirm password';     
     header('location: ../registration/registration.php');
 }
 
-// db code start
 
-if ($flag == true) {
+if ( count($flags) === 4) {
     if ($name && $email && $password && $confirm_password) {
         $select_query = "SELECT COUNT(*) AS email_check FROM users WHERE email='$email'";
         $connect = mysqli_query($db_connect, $select_query);

@@ -19,7 +19,6 @@ if(isset($_POST['name_update'])){
         mysqli_query($db_connect,$name_update_query);
 
         $_SESSION['user_name'] = "Successfully update";
-        $_SESSION['user_name'] =$name;
         header('location: ../home/home.php');
         
 
