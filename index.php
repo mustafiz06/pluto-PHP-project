@@ -466,12 +466,25 @@ $portfolios = mysqli_query($db_connect, $portfolio_query);
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="contact-form">
-                            <form action="#">
-                                <input type="text" placeholder="your name *">
-                                <input type="email" placeholder="your email *">
-                                <textarea name="message" id="message" placeholder="your message *"></textarea>
-                                <button class="btn">SEND</button>
+                        <div class="contact">
+                            <form class="form" method="post" action="./contact_POST.php">
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" name="name" class="form-control" placeholder="Name" required="required">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="email" name="email" class="form-control" placeholder="Email" required="required">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <input type="text" name="subject" class="form-control" placeholder="Subject" required="required">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <textarea rows="6" name="message" class="form-control" placeholder="Your Message" required="required"></textarea>
+                                    </div>
+                                    <div class="col-md-12 text-center">
+                                        <button type="submit" value="Send message" name="submit" id="submitButton" class="btn btn-contact-bg" title="Submit Your Message!">Send Message</button>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
