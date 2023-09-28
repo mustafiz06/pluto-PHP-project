@@ -1,6 +1,6 @@
 <?php
+session_start();
 include('../config/db.php');
-
 
 if (isset($_GET['message_delete_id'])) {
     $identify_id = $_GET['message_delete_id'];
@@ -26,6 +26,7 @@ $identify_id = $_POST['identify_id'];
 $name = $_POST['name'];
 $client_email = $_POST['client_email'];
 $answer = $db_connect->real_escape_string($_POST['answer']);
+$answer_by = $_SESSION['user_name'];
 
 $is_sent_mail = false;
 
@@ -57,15 +58,12 @@ if ($name && $client_email) {
 }
 // save data after feedback reply
 if ($is_sent_mail === true) {
-    if ($answer) {
+    $update_query = "UPDATE messagebox SET answer='$answer', answer_by='$answer_by' WHERE id='$identify_id'";
+    mysqli_query($db_connect, $update_query);
 
-        $update_query = "UPDATE messagebox SET answer='$answer' WHERE id='$identify_id'";
-        mysqli_query($db_connect, $update_query);
-
-        $_SESSION['add success'] = 'successfully sent';
-        header('location:./messagebox.php');
-    } else {
-        $_SESSION['add error'] = 'Failed to send';
-        header('location:./feedback.php');
-    }
+    $_SESSION['add success'] = 'successfully sent';
+    header('location:./messagebox.php');
+} else {
+    $_SESSION['add error'] = 'Failed to send';
+    header('location:./feedback.php');
 }
