@@ -11,13 +11,13 @@ $flags = array();
 if ($name) {
     if (!preg_match("/^[a-zA-Z-' .]*$/", $name)) {
         $_SESSION['name error'] = 'Only letters and white space allowed';
-        header('location: ../registration/registration.php');
+        header('location: ./registration.php');
     } else {
         $flags = true;
     }
 } else {
     $_SESSION['name error'] = 'please fill up name field';
-    header('location: ../registration/registration.php');
+    header('location: ./registration.php');
 }
 
 if ($email) {
@@ -25,11 +25,11 @@ if ($email) {
         $flags = true;
     } else {
         $_SESSION['email error'] = 'provide valid emaill address';
-        header('location: ../registration/registration.php');
+        header('location: ./registration.php');
     }
 } else {
     $_SESSION['email error'] = 'please fill up email field';
-    header('location: ../registration/registration.php');
+    header('location: ./registration.php');
 }
 
 if ($password) {
@@ -37,11 +37,11 @@ if ($password) {
         $flags = true;
     } else {
         $_SESSION['password error'] = 'please provide a charactor,a number and special character';
-        header('location: ../registration/registration.php');
+        header('location: ./registration.php');
     }
 } else {
     $_SESSION['password error'] = 'please provide your password';     
-    header('location: ../registration/registration.php');
+    header('location: ./registration.php');
 }
 
 if ($confirm_password) {
@@ -49,11 +49,11 @@ if ($confirm_password) {
         $flags = true;
     } else {
         $_SESSION['confirm_password error'] = 'confirm password and password did not match';         
-        header('location: ../registration/registration.php');
+        header('location: ./registration.php');
     }
 } else {
     $_SESSION['confirm_password error'] = 'please provide your confirm password';     
-    header('location: ../registration/registration.php');
+    header('location: ./registration.php');
 }
 
 
@@ -74,13 +74,13 @@ if ( count($flags) === 4) {
             header('location: ../login/login.php');
         } else {
             $_SESSION['db_connect error'] = 'User already exits';
-            header('location: ../registration/registration.php');
+            header('location: ./registration.php');
         }
     } else {
         $_SESSION['db_connect error'] = 'field Can not be empty';
-        header('location: ../registration/registration.php');
+        header('location: ./registration.php');
     }
 } else {
     $_SESSION['db_connect error'] = 'something went wrong';
-    header('location: ../registration/registration.php');
+    header('location: ./registration.php');
 }

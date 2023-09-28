@@ -13,18 +13,18 @@ if($email){
         $flag = true;
     }else{
         $_SESSION['email error'] = 'Enter a valid email address';
-        header('location: ../login/login.php');
+        header('location: ./login.php');
     }
 }else{
     $_SESSION['email error'] = 'please fill up email field';
-    header('location: ../login/login.php');
+    header('location: ./login.php');
 }
 
 if($password){
     $flag = true;
 }else{
     $_SESSION['password error'] = 'please fill up password field';
-    header('location: ../login/login.php');
+    header('location: ./login.php');
 }
 
 // database connect
@@ -46,16 +46,16 @@ if($flag == true){
             header('location: ../home/home.php');
         }else{
             $_SESSION['db_connect error'] = "Email and Password didn't match";
-            header('location: ../login/login.php');
+            header('location: ./login.php');
         }
 
     }else{
         $_SESSION['db_connect error'] = 'Field can not be empty';
-        header('location: ../login/login.php');
+        header('location: ./login.php');
     }
 }else{
     $_SESSION['db_connect error'] = 'something is wrong';
-    header('location: ../login/login.php');
+    header('location: ./login.php');
 }
 
 ?>
