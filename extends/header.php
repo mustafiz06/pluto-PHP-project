@@ -87,6 +87,9 @@ $data = mysqli_fetch_assoc($result);
                     <li class="<?= basename($_SERVER['PHP_SELF']) == 'portfolio_list.php' ? 'active-page' : '' ?>">
                         <a href="../portfolio/portfolio_list.php"><i class="large material-icons">graphic_eq</i>Manage Portfolio</a>
                     </li>
+                    <li class="<?= basename($_SERVER['PHP_SELF']) == 'messagebox.php' ? 'active-page' : '' ?>">
+                        <a href="../messagebox/messagebox.php"><i class="large material-icons">message</i>Manage Message</a>
+                    </li>
                 </ul>
             </div>
         </div>
