@@ -16,7 +16,7 @@ $messages = mysqli_query($db_connect, $message_query);
         <div class="card-body">
             <h5 class="card-title"><?= $message['subject'] ?></h5>
             <p class="card-text"><?= $message['message'] ?></p>
-            <a href="messagebox_POST.php?feedback_id=<?= $message['id'] ?>" class="btn btn-primary"><i class="large material-icons">feedback</i>Send Feedback</a>
+            <a href="feedback.php?feedback_id=<?= $message['id'] ?>" class="btn btn-primary"><i class="large material-icons">feedback</i>Send Feedback</a>
         </div>
         <div class="card-footer text-muted d-flex justify-content-between">
             <p>Date: <?= $message['date'] ?></p>

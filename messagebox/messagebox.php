@@ -40,7 +40,7 @@ $serial = 1;
                     <td><?= (substr($message['message'], 0, 50)) ?>.... <a href="message_show.php?message_show_id=<?= $message['id'] ?>">Show More</a></td>
                     
                     <td>
-                        <a href="messagebox_POST.php?message_delete_id=<?= $message['id'] ?>" class="btn btn-danger"><i class="large material-icons">delete</i>Delete</a>
+                        <a href="messagebox_POST.php?message_delete_id=<?= $message['id'] ?>" class="btn btn-danger d-flex"><i class="large material-icons">delete</i>Delete</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
