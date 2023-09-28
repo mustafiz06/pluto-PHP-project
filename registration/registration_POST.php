@@ -13,7 +13,8 @@ if ($name) {
         $_SESSION['name error'] = 'Only letters and white space allowed';
         header('location: ./registration.php');
     } else {
-        $flags = true;
+        // $flags = true;
+        array_push($flags,$name);
     }
 } else {
     $_SESSION['name error'] = 'please fill up name field';
@@ -22,7 +23,9 @@ if ($name) {
 
 if ($email) {
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $flags = true;
+        // $flags = true;
+        
+        array_push($flags,$email);
     } else {
         $_SESSION['email error'] = 'provide valid emaill address';
         header('location: ./registration.php');
@@ -34,7 +37,8 @@ if ($email) {
 
 if ($password) {
     if (preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,12}$/', $password)) {
-        $flags = true;
+        // $flags = true;
+        array_push($flags,$password);
     } else {
         $_SESSION['password error'] = 'please provide a charactor,a number and special character';
         header('location: ./registration.php');
@@ -46,7 +50,8 @@ if ($password) {
 
 if ($confirm_password) {
     if ($password == $confirm_password) {
-        $flags = true;
+        // $flags = true;
+        array_push($flags,$confirm_password);
     } else {
         $_SESSION['confirm_password error'] = 'confirm password and password did not match';         
         header('location: ./registration.php');
