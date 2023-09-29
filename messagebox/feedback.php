@@ -1,6 +1,5 @@
 <?php
 include('../extends/header.php');
-include('../config/db.php');
 
 $id = $_GET['feedback_id'];
 $messages_query = "SELECT * FROM messagebox WHERE id='$id'";

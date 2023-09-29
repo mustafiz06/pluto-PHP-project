@@ -1,6 +1,5 @@
 <?php
 include('../extends/header.php');
-include('../config/db.php');
 
 
 $service_query = "SELECT * FROM services";

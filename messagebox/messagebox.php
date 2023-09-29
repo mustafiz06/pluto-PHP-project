@@ -1,6 +1,5 @@
 <?php
 include('../extends/header.php');
-include('../config/db.php');
 
 
 $message_query = "SELECT * FROM messagebox";

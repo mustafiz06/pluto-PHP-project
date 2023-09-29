@@ -1,6 +1,5 @@
 <?php
 include('../extends/header.php');
-include('../config/db.php');
 include('icon.php');
 $id = $_GET['edit_id'];
 $service_query = "SELECT * FROM services WHERE id='$id'";

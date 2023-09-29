@@ -1,6 +1,5 @@
 <?php
 include('../extends/header.php');
-include('../config/db.php');
 
 $identify_id = $_GET['message_show_id'];
 $message_query = "SELECT * FROM messagebox WHERE id='$identify_id'";

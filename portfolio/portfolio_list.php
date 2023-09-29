@@ -1,6 +1,5 @@
 <?php
 include('../extends/header.php');
-include('../config/db.php');
 
 
 $portfolio_query = "SELECT * FROM portfolios";

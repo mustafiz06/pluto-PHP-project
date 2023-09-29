@@ -1,6 +1,5 @@
 <?php
 include('../extends/header.php');
-include('../config/db.php');
 
 $user_id = $_SESSION['user_id'];
 $user_query = "SELECT * FROM users WHERE id='$user_id'";

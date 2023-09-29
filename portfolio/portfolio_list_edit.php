@@ -1,6 +1,5 @@
 <?php
 include('../extends/header.php');
-include('../config/db.php');
 $id = $_GET['portfolio_edit_id'];
 $portfolio_query = "SELECT * FROM portfolios WHERE id='$id'";
 $result = mysqli_query($db_connect, $portfolio_query);
