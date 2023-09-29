@@ -2,7 +2,8 @@
 include('../extends/header.php');
 
 
-$message_query = "SELECT * FROM messagebox";
+// $message_query = "SELECT * FROM messagebox";
+$message_query = "SELECT * FROM messagebox ORDER BY answer";
 $messages = mysqli_query($db_connect, $message_query);
 $messages_single = mysqli_fetch_assoc($messages);
 $serial = 1;
