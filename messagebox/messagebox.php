@@ -6,7 +6,6 @@ $message_query = "SELECT * FROM messagebox";
 $messages = mysqli_query($db_connect, $message_query);
 $messages_single = mysqli_fetch_assoc($messages);
 $serial = 1;
-
 ?>
 
 <div class="row ">
@@ -21,6 +20,7 @@ $serial = 1;
     <thead>
         <tr>
             <th scope="col">ID</th>
+            <th scope="col">Status</th>
             <th scope="col">Sender</th>
             <th scope="col">E-mail</th>
             <th scope="col">Subject</th>
@@ -33,11 +33,19 @@ $serial = 1;
             <?php foreach ($messages as $message) : ?>
                 <tr>
                     <th scope="row"><?= $serial++ ?></th>
+                    <td>
+                        <?php $answer = $message['answer'];
+                        if (is_null($answer)) { ?>
+                            <span class="badge badge-danger text-white">No Answer Yet!</span>
+                        <?php } else { ?>
+                            <span class="badge badge-success text-white">Answered</span>
+                        <?php } ?>
+                    </td>
                     <td><?= $message['name'] ?></td>
                     <td><?= $message['email'] ?></td>
                     <td><?= $message['subject'] ?></td>
                     <td><?= (substr($message['message'], 0, 50)) ?>.... <a href="message_show.php?message_show_id=<?= $message['id'] ?>">Show More</a></td>
-                    
+
                     <td>
                         <a href="messagebox_POST.php?message_delete_id=<?= $message['id'] ?>" class="btn btn-danger d-flex"><i class="large material-icons">delete</i>Delete</a>
                     </td>
