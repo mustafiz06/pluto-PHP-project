@@ -18,6 +18,7 @@ $result = mysqli_query($db_connect, $flag_query);
 $data = mysqli_fetch_assoc($result);
 
 
+$messages = mysqli_query($db_connect,"SELECT * FROM messagebox WHERE `answer` IS NULL");
 ?>
 
 <!DOCTYPE html>
@@ -88,7 +89,11 @@ $data = mysqli_fetch_assoc($result);
                         <a href="../portfolio/portfolio_list.php"><i class="large material-icons">graphic_eq</i>Manage Portfolio</a>
                     </li>
                     <li class="<?= basename($_SERVER['PHP_SELF']) == 'messagebox.php' ? 'active-page' : '' ?>">
-                        <a href="../messagebox/messagebox.php"><i class="large material-icons">message</i>Manage Message</a>
+                        <a href="../messagebox/messagebox.php">
+                            <i class="large material-icons">message</i>
+                            Manage Message
+                            <span class="badge badge-primary fs-6"><?= mysqli_num_rows($messages) ?></span>
+                        </a>
                     </li>
                 </ul>
             </div>
