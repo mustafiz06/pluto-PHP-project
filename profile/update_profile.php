@@ -35,7 +35,7 @@ $user = mysqli_fetch_assoc($users);
                     <input type="text" class="form-control" id="profession" name="profession" value="<?= $user['profession'] ?>">
 
                     <label for="country" class="form-label">Country</label>
-                    <?php $country = array('Bangladesh', 'India', 'Pakistan','Japan', 'China', 'Indonesia','Malaysia', 'Thailand', 'Soutn Korea','North Korea'); ?>
+                    <?php $country = array('Bangladesh', 'India', 'Pakistan', 'Japan', 'China', 'Indonesia', 'Malaysia', 'Thailand', 'South Korea', 'North Korea'); ?>
                     <select name="country" id="country" class="form-control">
                         <?php foreach ($country as $key => $value) { ?>
                             <option value="<?= $value; ?>" <?php if ($user['country'] == $value) echo "selected" ?>><?= $value; ?></option>
