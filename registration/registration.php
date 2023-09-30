@@ -35,7 +35,7 @@ session_start();
         </div>
         <div class="app-auth-container">
             <div class="logo">
-                <a href="index.html">Neptune</a>
+                <a href="../home/home.php">Pluto</a>
             </div>
             <p class="auth-description">Please enter your credentials to create an account.<br>Already have an account? <a href="../login/login.php">Log In</a></p>
             <?php if (isset($_SESSION['db_connect error'])) : ?>

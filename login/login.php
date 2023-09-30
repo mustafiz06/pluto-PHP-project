@@ -17,7 +17,7 @@ session_start()
     <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Neptune - Responsive Admin Dashboard Template</title>
+    <title>Login | Pluto</title>
 
     <!-- Styles -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -51,7 +51,7 @@ session_start()
         </div>
         <div class="app-auth-container">
             <div class="logo">
-                <a href="index.html">Neptune</a>
+                <a href="../home/home.php">Pluto</a>
             </div>
             <p class="auth-description">Please log-in to your account and continue to the dashboard.<br>Don't have an account? <a href="../registration/registration.php">Sign Up</a></p>
 
