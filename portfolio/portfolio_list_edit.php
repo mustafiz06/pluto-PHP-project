@@ -1,4 +1,5 @@
 <?php
+$title = 'Edit portfolio | Pluto';
 include('../extends/header.php');
 $id = $_GET['portfolio_edit_id'];
 $portfolio_query = "SELECT * FROM portfolios WHERE id='$id'";

@@ -1,4 +1,5 @@
 <?php
+$title = 'Update Password | Pluto';
 include('../extends/header.php')
 ?>
 

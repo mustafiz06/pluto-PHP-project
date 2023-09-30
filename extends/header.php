@@ -11,14 +11,14 @@ $user_id = $_SESSION['user_id'];
 $user_query = "SELECT country FROM users WHERE id=$user_id";
 $result = mysqli_query($db_connect, $user_query);
 $user_country = mysqli_fetch_assoc($result);
-$country=$user_country['country'];
+$country = $user_country['country'];
 
 $flag_query = "SELECT* FROM `country` WHERE `name`='$country'";
 $result = mysqli_query($db_connect, $flag_query);
 $data = mysqli_fetch_assoc($result);
 
 
-$messages = mysqli_query($db_connect,"SELECT * FROM messagebox WHERE `answer` IS NULL");
+$messages = mysqli_query($db_connect, "SELECT * FROM messagebox WHERE `answer` IS NULL");
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +34,11 @@ $messages = mysqli_query($db_connect,"SELECT * FROM messagebox WHERE `answer` IS
     <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Pluto Dashboard</title>
+    <title><?php if (isset($title)) {
+                echo $title;
+            } else {
+                echo "Pluto Dashboard";
+            } ?></title>
 
     <!-- Styles -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -92,7 +96,9 @@ $messages = mysqli_query($db_connect,"SELECT * FROM messagebox WHERE `answer` IS
                         <a href="../messagebox/messagebox.php">
                             <i class="large material-icons">message</i>
                             Manage Message
-                            <span class="badge badge-primary fs-6"><?= mysqli_num_rows($messages) ?></span>
+                            <?php if (mysqli_num_rows($messages) > 0) : ?>
+                                <span class="badge badge-primary fs-6"><?= mysqli_num_rows($messages) ?></span>
+                            <?php endif; ?>
                         </a>
                     </li>
                 </ul>
@@ -162,8 +168,8 @@ $messages = mysqli_query($db_connect,"SELECT * FROM messagebox WHERE `answer` IS
                         <div class="d-flex">
                             <ul class="navbar-nav">
                                 <li class="nav-item hidden-on-mobile">
-                                    <a class="nav-link language-dropdown-toggle" href="<?= $data['website'];?>" target="_blank">
-                                        <img src="<?= $data['flag'];?>" alt="" title="<?= $data['name'];?>" style="border: 1px solid gray;">
+                                    <a class="nav-link language-dropdown-toggle" href="<?= $data['website']; ?>" target="_blank">
+                                        <img src="<?= $data['flag']; ?>" alt="" title="<?= $data['name']; ?>" style="border: 1px solid gray;">
                                     </a>
                                 </li>
                                 <li class="nav-item hidden-on-mobile">

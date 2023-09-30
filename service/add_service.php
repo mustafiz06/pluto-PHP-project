@@ -1,4 +1,5 @@
 <?php
+$title = 'Add service | Pluto';
 include('../extends/header.php');
 include('icon.php');
 ?>

@@ -1,9 +1,9 @@
 <?php
+$title = 'Manage messages | Pluto';
 include('../extends/header.php');
 
-
-// $message_query = "SELECT * FROM messagebox";
-$message_query = "SELECT * FROM messagebox ORDER BY answer";
+$message_query = "SELECT * FROM messagebox";
+// $message_query = "SELECT * FROM messagebox ORDER BY answer";
 $messages = mysqli_query($db_connect, $message_query);
 $messages_single = mysqli_fetch_assoc($messages);
 $serial = 1;
@@ -32,12 +32,11 @@ $serial = 1;
     <tbody>
         <?php if ($messages_single) : ?>
             <?php foreach ($messages as $message) : ?>
-                <tr>
+                <tr id="message_row" class="<?php if(is_null($message['answer']) == true) echo 'bg-light' ?>">
                     <th scope="row"><?= $serial++ ?></th>
                     <td>
-                        <?php $answer = $message['answer'];
-                        if (is_null($answer)) { ?>
-                            <span class="badge badge-danger text-white">No Answer Yet!</span>
+                        <?php if (is_null($message['answer'])) { ?>
+                            <span class="badge badge-warning text-white">No Answer Yet!</span>
                         <?php } else { ?>
                             <span class="badge badge-success text-white">Answered</span>
                         <?php } ?>

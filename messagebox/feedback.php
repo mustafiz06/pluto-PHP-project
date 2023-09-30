@@ -1,4 +1,5 @@
 <?php
+$title = 'Message feedback | Pluto';
 include('../extends/header.php');
 
 $id = $_GET['feedback_id'];

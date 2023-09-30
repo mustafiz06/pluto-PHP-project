@@ -1,4 +1,5 @@
 <?php
+$title = 'Message details | Pluto';
 include('../extends/header.php');
 
 $identify_id = $_GET['message_show_id'];

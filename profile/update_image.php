@@ -1,4 +1,5 @@
 <?php
+$title = 'Update Image | Pluto';
 include('../extends/header.php');
 
 $user_id = $_SESSION['user_id'];

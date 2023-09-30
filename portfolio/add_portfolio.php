@@ -1,4 +1,5 @@
 <?php
+$title = 'Add portfolio | Pluto';
 include('../extends/header.php');
 ?>
 

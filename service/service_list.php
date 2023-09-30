@@ -1,4 +1,5 @@
 <?php
+$title = 'Manage Service  | Pluto';
 include('../extends/header.php');
 
 

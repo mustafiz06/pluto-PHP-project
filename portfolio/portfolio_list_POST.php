@@ -6,6 +6,12 @@ session_start();
 // delete data
 if (isset($_GET['portfolio_delete_id'])) {
     $identify_id = $_GET['portfolio_delete_id'];
+    
+    $image_query = "SELECT image  FROM portfolios WHERE id='$identify_id'";
+    $image_query_connect = mysqli_query($db_connect, $image_query);
+    $exist_image = mysqli_fetch_assoc($image_query_connect)['image'];
+    unlink('../images/portfolio/' . $exist_image);
+
     $delete_query = "DELETE FROM portfolios WHERE id='$identify_id'";
     mysqli_query($db_connect, $delete_query);
     header('location: ./portfolio_list.php');

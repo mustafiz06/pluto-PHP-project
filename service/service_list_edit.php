@@ -1,4 +1,5 @@
 <?php
+$title = 'Edit service | Pluto';
 include('../extends/header.php');
 include('icon.php');
 $id = $_GET['edit_id'];

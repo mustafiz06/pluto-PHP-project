@@ -243,65 +243,69 @@ $portfolios = mysqli_query($db_connect, $portfolio_query);
         <!-- about-area-end -->
 
         <!-- Services-area -->
-        <section id="service" class="services-area pt-120 pb-50">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6 col-lg-8">
-                        <div class="section-title text-center mb-70">
-                            <span>WHAT WE DO</span>
-                            <h2>Services and Solutions</h2>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <?php foreach ($services as $service) : ?>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.2s">
-
-                                <i class="<?= $service['icon'] ?>"></i>
-                                <h3><?= $service['name'] ?></h3>
-                                <p>
-                                    <?= $service['description'] ?>
-                                </p>
+        <?php if (mysqli_num_rows($services) > 0) : ?>
+            <section id="service" class="services-area pt-120 pb-50">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-6 col-lg-8">
+                            <div class="section-title text-center mb-70">
+                                <span>WHAT WE DO</span>
+                                <h2>Services and Solutions</h2>
                             </div>
                         </div>
-                    <?php endforeach; ?>
+                    </div>
 
+                    <div class="row">
+                        <?php foreach ($services as $service) : ?>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.2s">
+
+                                    <i class="<?= $service['icon'] ?>"></i>
+                                    <h3><?= $service['name'] ?></h3>
+                                    <p>
+                                        <?= $service['description'] ?>
+                                    </p>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        <?php endif; ?>
         <!-- Services-area-end -->
 
         <!-- Portfolios-area -->
-        <section id="portfolio" class="portfolio-area primary-bg pt-120 pb-90">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6 col-lg-8">
-                        <div class="section-title text-center mb-70">
-                            <span>Portfolio Showcase</span>
-                            <h2>My Recent Best Works</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <?php foreach ($portfolios as $portfolio) : ?>
-                        <div class="col-lg-4 col-md-6 pitem">
-                            <div class="speaker-box">
-                                <div class="speaker-thumb">
-                                    <img src="./images/portfolio/<?= $portfolio['image'] ?>" alt="img" style="height: 600px;">
-                                </div>
-                                <div class="speaker-overlay">
-                                    <span><?= $portfolio['title'] ?></span>
-                                    <h4><a href="portfolio-single.html"><?= $portfolio['subtitle'] ?></a></h4>
-                                    <a href="./portfolio_item.php?portfolio_id=<?= $portfolio['id'] ?>" class="arrow-btn">More information <span></span></a>
-                                </div>
+        <?php if (mysqli_num_rows($portfolios) > 0) : ?>
+            <section id="portfolio" class="portfolio-area primary-bg pt-120 pb-90">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-6 col-lg-8">
+                            <div class="section-title text-center mb-70">
+                                <span>Portfolio Showcase</span>
+                                <h2>My Recent Best Works</h2>
                             </div>
                         </div>
-                    <?php endforeach; ?>
+                    </div>
+                    <div class="row">
+                        <?php foreach ($portfolios as $portfolio) : ?>
+                            <div class="col-lg-4 col-md-6 pitem">
+                                <div class="speaker-box">
+                                    <div class="speaker-thumb">
+                                        <img src="./images/portfolio/<?= $portfolio['image'] ?>" alt="img" style="height: 600px;">
+                                    </div>
+                                    <div class="speaker-overlay">
+                                        <span><?= $portfolio['title'] ?></span>
+                                        <h4><?= $portfolio['subtitle'] ?></h4>
+                                        <a href="./portfolio_item.php?portfolio_id=<?= $portfolio['id'] ?>" class="arrow-btn">More information <span></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        <?php endif; ?>
         <!-- services-area-end -->
 
 

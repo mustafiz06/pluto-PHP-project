@@ -40,11 +40,11 @@ if ($name && $client_email) {
     $mail->isHTML(true);
     $mail->Subject = "Greeting for joining Pluto Family";
     $mail->Body    = 'Hi there!
-                    Welcome to the <b>Pluto Family</b><br> 
+                    Welcome to the our <b>Pluto Family</b><br> 
                     I am glad that you are reading this email. I will be happy to help you grow your business. <br>
                     As a thank you for joining us, I would like to give you a gift.';
     $mail->AltBody = 'Hi there!
-                    Welcome to the <b>Pluto Family</b><br> 
+                    Welcome to the our <b>Pluto Family</b><br> 
                     I am glad that you are reading this email. I will be happy to help you grow your business. <br>
                     As a thank you for joining us, I would like to give you a gift.';
 
